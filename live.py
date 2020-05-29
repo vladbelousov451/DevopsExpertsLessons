@@ -1,11 +1,18 @@
 ##### Functions ######
+
+import MemoryGame
+import GuessGame
+
+
+
 class WorldOfGamesGame():
     def __init__(self):
         self.l = []
 
 
+
     def welcome(self , name):
-        return (f"  Hello {name}  and welcome to the World of Games (WoG).\n  Here you can find many cool games to play. ")
+        print (f"  Hello {name}  and welcome to the World of Games (WoG).\n  Here you can find many cool games to play. ")
 
     def loadgame(self):
         game_type = input(
@@ -22,15 +29,21 @@ class WorldOfGamesGame():
             """
         )
         if (int(game_type) >= 1 and int(game_type) <= 3):
-            game_difficulty = get_game_difficulty()
-            return game_difficulty, game_type
+            game_difficulty = int(self.get_game_difficulty())
+            if int(game_type) == 1:
+                MemoryGame == MemoryGame()
+                MemoryGame.play(game_difficulty)
+            elif int(game_type) == 2:
+                GuessGame == GuessGame()
+                GuessGame.play(game_difficulty)
+            else:
+                print("print number that i want you to print")
+                self.loadgame()
 
-
-
-
-
-
-    def get_game_difficulty():
-        game_difficulty  = input("Please choose game difficulty from 1 to 5: ")
+    def get_game_difficulty(self):
+        game_difficulty = input("Please choose game difficulty from 1 to 5: ")
         if (int(game_difficulty) >= 1 and int(game_difficulty) <= 5):
             return game_difficulty
+
+
+
